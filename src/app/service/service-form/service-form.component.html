@@ -23,6 +23,14 @@
   </div>
 
   <div class="mb-6">
+    <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Price</label>
+    <input type="number" id="price" name="price"
+           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+           placeholder="Enter price" required [(ngModel)]="service.price" #price="ngModel" step="0.01" min="0">
+    <div [hidden]="price.valid || price.pristine" class="text-red-500 mt-2">Price is required and must be a positive number</div>
+</div>
+
+  <div class="mb-6">
       <label for="description" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
       <textarea id="description" name="description"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"

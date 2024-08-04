@@ -1,18 +1,26 @@
-<div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-green-500 p-4">
-    <div class="text-center bg-white p-10 rounded-3xl shadow-2xl transform transition-all duration-500 hover:scale-105">
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-500 to-green-500 p-4 animated-gradient">
+    <div class="text-center bg-white p-12 rounded-3xl shadow-2xl mt-20">
       <h1 class="text-5xl font-extrabold text-gray-900 mb-6">Welcome to Jiffy Services</h1>
       <p class="text-lg text-gray-700 mb-8">
         Your one-stop solution for all service needs. Discover a wide range of services, from home repairs to personal tutoring, all in one place.
       </p>
-      <div class="space-x-4">
+      <p class="text-md text-gray-600 mb-8">
+        Whether you're looking to find a reliable handyman, schedule a cleaning, or book a personal tutor, Jiffy Services makes it easy to connect with qualified professionals. Explore our platform to find the perfect service that fits your needs and get started today.
+      </p>
+      <p class="text-md text-gray-600 mb-12">
+        Not sure where to start? Click the 'View Shop' button to browse our offerings, or log in to your account to manage your services and bookings. We're here to help make your life easier!
+      </p>
+      <div class="space-x-4 mb-8">
         @if (!isAuthenticated()) {
-            <button class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110">
-                <app-login></app-login>
+            <button class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110" (click)="navigateToLogin()">
+                Login
             </button>
         }
         
+        <button class="bg-green-600 hover:bg-green-800 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110" (click)="navigateToShop()">
+          View Shop
+        </button>
       </div>
-
     </div>
   </div>
   
