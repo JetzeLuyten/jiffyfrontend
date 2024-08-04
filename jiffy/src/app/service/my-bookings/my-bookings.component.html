@@ -1,0 +1,30 @@
+<div *ngIf="bookings.length > 0; else noBookings">
+    <div *ngFor="let booking of bookings"
+         class="bg-white shadow-md rounded-lg p-5 mb-5 flex justify-between items-center"
+         [ngClass]="{'border-green-500 border-2': booking.complete}">
+      <div>
+        <h3 class="text-xl font-semibold">{{ booking.service.title }}</h3>
+        <p class="text-gray-600">Offer Type: {{ booking.service.serviceType.name }}</p>
+        <p class="text-gray-600">Description: {{ booking.service.description | shortenContent }}</p>
+        <p class="text-gray-600">Booking Time: {{ booking.bookingTime | dateFormat}}</p>
+        <p class="text-gray-600">Mercenary: {{ booking.service.user.fullName || 'Unknown' }}</p>
+      </div>
+      <div>
+        <button 
+          *ngIf="!booking.complete"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+          (click)="cancelBooking(booking.id)">
+          Cancel
+        </button>
+        <button 
+          *ngIf="booking.complete"
+          class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+          (click)="cancelBooking(booking.id)">
+          Finish
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-template #noBookings>
+    <p>No bookings found.</p>
+  </ng-template>

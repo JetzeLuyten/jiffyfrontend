@@ -1,0 +1,33 @@
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
+  <button type="button" class="btn btn-success addBtn" (click)="add()"><i class="fas fa-plus"></i> Add new article</button>
+  <table class="table" *ngIf="services && services.length > 0">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">ServiceType</th>
+      <th scope="col">Time</th>
+      <th scope="col">Author</th>
+      <th scope="col">publishDate</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let se of services">
+      <th scope="row">{{se.id}}</th>
+      <td>{{se.title}}</td>
+      <td>{{se.serviceType}}</td>
+      <td>{{se.time}}</td>
+      <td>{{se.description}}</td>
+      <td>{{se.author}}</td>
+      <td>{{se.publishDate}}</td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="edit(se.id)"><i class="fas fa-edit"></i></button>
+        <button type="button" class="btn btn-danger" (click)="delete(se.id)"><i class="far fa-trash-alt"></i></button>
+        <!-- <button *ngIf="isUnpublished(ar)" type="button" class="btn btn-primary" (click)="publish(se.id)"><i class="fas fa-globe"></i></button> -->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  

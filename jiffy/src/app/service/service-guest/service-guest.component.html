@@ -1,0 +1,17 @@
+<article *ngIf="service" class="flex flex-col justify-between h-full bg-white border-gray-200 border-2 p-6 shadow-lg rounded-lg">
+    <h1 class="text-4xl my-3 font-bold">{{service.title}}</h1>
+    <p *ngIf="!isDetail" class="text-justify my-3 text-gray-700">
+        {{service.description | shortenContent : 250}}
+    </p>
+    <p *ngIf="isDetail" class="text-justify my-3 text-gray-700">
+        {{service.description}}
+    </p>
+    <div class="py-2 flex space-x-4">
+        <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" (click)="detail(service.id)">Details</button>
+    </div>
+    <footer class="mt-4 text-gray-600">
+        <p><span class="font-semibold">Mercenary:</span> {{service.user.fullName}}</p>
+        <p><span class="font-semibold">Published:</span> {{service.publishDate | dateFormat}}</p>
+        <p><span class="font-semibold">Service Type:</span> {{service.serviceType.name}}</p>
+    </footer>
+</article>
