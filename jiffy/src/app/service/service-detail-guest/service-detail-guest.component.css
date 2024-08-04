@@ -1,0 +1,63 @@
+.offer-detail-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+
+  .back-link {
+    font-size: 1.2rem;
+    color: #007bff; /* Blue color */
+    text-decoration: none; /* No underline */
+    margin-bottom: 20px;
+    display: inline-block;
+    cursor: pointer; /* Changes cursor to pointer */
+  }
+
+  .back-link:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+
+  .offer-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .offer-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .offer-details {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .mercenary-info {
+    font-size: 1rem;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+  }
+
+  .mercenary-info a {
+    color: #007bff; /* Blue color */
+    text-decoration: underline; /* Underline */
+  }
+
+  .mercenary-info a:hover {
+    color: #0056b3; /* Darker blue on hover */
+  }
+
+  .book-offer-button {
+    background-color: #28a745; /* Bootstrap green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .book-offer-button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }

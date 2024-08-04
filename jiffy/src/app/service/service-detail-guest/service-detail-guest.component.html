@@ -1,0 +1,21 @@
+<div class="jiffy-detail-container">
+    <a class="back-link" (click)="goBack()">← Back</a>
+
+    <h1 class="service-title">{{ service.title }}</h1>
+
+    <div class="service-description">
+      <p>{{ service.description }}</p>
+    </div>
+
+    <div class="service-details">
+      <p><strong>ServiceType:</strong> {{ service.serviceType.name }}</p>
+      <p><strong>Published Date:</strong> {{ service.publishDate | dateFormat }}</p>
+    </div>
+
+    <div class="jiffy-info">
+      <p><strong>Jiffy:</strong> {{ service.user.fullName }}</p>
+      <p><strong>Contact:</strong> 
+        <a [href]="'mailto:' + service.user.email"> {{ service.user.email }}</a>
+      </p>
+    </div>
+  </div>
