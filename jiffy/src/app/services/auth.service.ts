@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { jwtDecode } from 'jwt-decode'; // Correct import
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServices {
-  private apiUrl = 'https://localhost:6587/api/auth';
+  private apiUrl = environment.api_url +'/auth';
 
   constructor(private http: HttpClient) {}
 
