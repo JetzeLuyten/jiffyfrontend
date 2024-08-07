@@ -1,5 +1,5 @@
 import { CommonModule, Location } from '@angular/common';
-import { Component, Input, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, signal } from '@angular/core';
 import { Service } from '../model/service';
 import { Router } from '@angular/router';
 import { ShortenContentPipe } from '../shorten-content.pipe';
@@ -24,6 +24,8 @@ export class ServicesComponent {
   @Input() isShop: boolean = false;
   userId: string | null = null;
   hasActiveBooking: boolean = false;
+
+  @Output() serviceDeleted = new EventEmitter<number>();
 
   mailText: string = "";
 
@@ -79,16 +81,12 @@ export class ServicesComponent {
   }
 
   deleteService(id: number) {
-    this.servicesService.deleteService(id).subscribe(
-      () => {
-        // Handle success (e.g., remove the item from the local list)
-        console.log('Service deleted successfully');
-      },
-      error => {
-        // Handle error
-        console.error('Error deleting service', error);
-      }
-    );
+    if (id) {
+      this.servicesService.deleteService(id).subscribe(() => {
+        console.log('Offer deleted successfully');
+        this.serviceDeleted.emit(id);
+      });
+    }
   }
 
   checkActiveBooking() {
