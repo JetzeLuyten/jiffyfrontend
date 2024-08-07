@@ -25,6 +25,8 @@ export class ServicesComponent {
   userId: string | null = null;
   hasActiveBooking: boolean = false;
 
+  mailText: string = "";
+
   isAuthenticated: boolean = false;
 
   constructor(private router: Router, private location: Location, private auth: AuthService, private bookingService: BookingService, private servicesService: ServicesService) { }
@@ -58,6 +60,7 @@ export class ServicesComponent {
 
   bookService() {
     if (this.userId) {
+
       const bookingTime = new Date();
 
       const bookingDto: CreateBooking = {
