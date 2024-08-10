@@ -7,7 +7,7 @@
       <input type="name" id="name" name="name"
              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
              placeholder="Name" required [(ngModel)]="serviceType.name" #name="ngModel">
-      <div [hidden]="name.valid || name.pristine" class="text-red-500 mt-2">Name is required</div>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-red-500 mt-2">Name is required</div>
     </div>
   
     <button type="submit" *ngIf="isAdd" [disabled]="!categoryForm.form.valid || isSubmitted"
