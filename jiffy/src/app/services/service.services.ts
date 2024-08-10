@@ -39,7 +39,6 @@ export class ServicesService {
   }
 
   updateService(id: number, service: UpdateServiceDto): Observable<void> {
-    console.log(service.price);
     return this.httpClient.put<void>(`${this.apiUrl}/service/${id}`, service);
   }
 

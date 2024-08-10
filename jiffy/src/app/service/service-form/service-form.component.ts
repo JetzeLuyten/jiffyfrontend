@@ -114,6 +114,8 @@ export class ServiceFormComponent implements OnInit, OnDestroy {
             price: this.service.price
           };
 
+          console.log(updateServiceDto.price);
+
           this.putService$ = this.serviceService.updateService(this.serviceId, updateServiceDto).subscribe({
             next: () => this.router.navigateByUrl('/myservices'),
             error: (e) => this.errorMessage = e.message
