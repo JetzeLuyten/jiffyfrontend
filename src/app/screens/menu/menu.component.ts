@@ -26,9 +26,7 @@ export class MenuComponent implements OnInit{
       this.isAuthenticated.set(auth)
     });
 
-    this.roleService.hasPermission('getall:services').subscribe(r => {
-      this.isAdmin.set(r);
-    })
+    
    }
 
   ngOnInit(): void {
@@ -38,6 +36,10 @@ export class MenuComponent implements OnInit{
         console.log('User name:', this.userName);
       }
     });
+
+    this.roleService.hasPermission('delete:servicetype').subscribe(r => {
+      this.isAdmin.set(r);
+    })
   }
 
   

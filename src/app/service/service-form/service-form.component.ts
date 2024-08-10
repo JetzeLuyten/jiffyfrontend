@@ -110,7 +110,8 @@ export class ServiceFormComponent implements OnInit, OnDestroy {
             id: this.service.id,
             title: this.service.title,
             description: this.service.description,
-            serviceTypeId: this.service.serviceTypeId
+            serviceTypeId: this.service.serviceTypeId,
+            price: this.service.price
           };
 
           this.putService$ = this.serviceService.updateService(this.serviceId, updateServiceDto).subscribe({

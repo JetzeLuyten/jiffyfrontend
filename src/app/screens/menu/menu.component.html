@@ -46,9 +46,11 @@
               <div id="dropdownNavbar" (mouseleave)="closeAdminDropDown()" *ngIf="adminDropdownOpen"
                    class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200">
                   <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownNavbarLink">
-                      <li *ngIf="isAdmin()" class="cursor-pointer hover:bg-gray-100">
+                    @if (isAdmin()) {
+                      <li class="cursor-pointer hover:bg-gray-100">
                           <a (click)="navigateTo('admin/servicetype')" class="block py-2 px-4">ServiceType</a>
                       </li>
+                    }
                       <li class="cursor-pointer hover:bg-gray-100">
                           <app-logout></app-logout>
                       </li>

@@ -7,20 +7,17 @@
         type="text"
         placeholder="Filter by title"
         [(ngModel)]="titleFilter"
+        (ngModelChange)="applyFilters()"
         class="border-2 border-gray-300 rounded-lg p-2 mr-4"
     />
     <select
         [(ngModel)]="serviceTypeFilter"
+        (ngModelChange)="applyFilters()"
         class="border-2 border-gray-300 rounded-lg p-2"
     >
-        <option value="">All Offer Types</option>
+        <option value="">All Service Types</option>
         <option *ngFor="let type of serviceTypes" [value]="type.id">{{ type.name }}</option>
     </select>
-    <button 
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4" 
-        (click)="applyFilters()">
-        Apply Filters
-    </button>
 </div>
 
 <!-- Grid container for services -->

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Service } from '../../model/service';
 import { ServicesService } from '../../services/service.services';
+import { ServicesComponent } from '../services.component';
 import { CommonModule } from '@angular/common';
 import { catchError, of, Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +9,6 @@ import { ServiceType } from '../../model/serviceType';
 import { AuthService } from '@auth0/auth0-angular';
 import { ServiceTypeService } from '../../services/service-type.service';
 import { Router, RouterModule } from '@angular/router';
-import { ServicesComponent } from '../services.component';
 
 @Component({
   selector: 'app-service-shop',
