@@ -42,7 +42,7 @@
         <!-- Booking and Admin Actions -->
         <div *ngIf="isShop && isAuthenticated" class="flex space-x-4">
           <!-- Booking Button -->
-          <button
+          <a [href]="emailstring"><button
             [disabled]="hasActiveBooking"
             [ngClass]="{
               'bg-blue-500 hover:bg-blue-700': !hasActiveBooking,
@@ -51,7 +51,7 @@
             class="text-white font-semibold py-2 px-4 rounded transition-colors duration-200"
             (click)="bookService()">
             {{ hasActiveBooking ? 'Already Booked' : 'Book Offer' }}
-          </button>
+          </button></a>
   
           <!-- Admin Delete Button -->
           <button *ngIf="isAdmin()"

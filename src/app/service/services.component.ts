@@ -29,6 +29,7 @@ export class ServicesComponent {
   isAuthenticated: boolean = false;
 
   isAdmin = signal(false);
+  emailstring: string = "";
 
   constructor(
     private router: Router, 
@@ -86,6 +87,7 @@ export class ServicesComponent {
         this.hasActiveBooking = true;
       });
 
+      this.emailstring = `mailto:${this.service.user.email}?Subject=${this.service.title} got a new booker!&body=${this.service.title} got a new booker: ${this.auth.user$}`;
     }
   }
 
