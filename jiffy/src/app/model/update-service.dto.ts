@@ -3,4 +3,5 @@ export interface UpdateServiceDto {
     title: string;
     description: string;
     serviceTypeId: number;
+    price: number;
   }
