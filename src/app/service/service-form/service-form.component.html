@@ -8,7 +8,7 @@
     <input type="text" id="title" name="title"
            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
            placeholder="Enter the title" required [(ngModel)]="service.title" #title="ngModel">
-    <div [hidden]="title.valid || title.pristine" class="text-red-500 mt-2 text-sm">Title is required</div>
+    <div *ngIf="title.valid || title.pristine" class="text-red-500 mt-2 text-sm">Title is required</div>
   </div>
 
   <div class="ml-8 mr-8">
@@ -20,7 +20,7 @@
         {{type.name}}
       </option>
     </select>
-    <div [hidden]="serviceTypeId.valid || serviceTypeId.pristine" class="text-red-500 mt-2 text-sm">Service Type is required</div>
+    <div *ngIf="serviceTypeId.valid || serviceTypeId.pristine" class="text-red-500 mt-2 text-sm">Service Type is required</div>
   </div>
 
   <div class="ml-8 mr-8">
@@ -31,7 +31,7 @@
              placeholder="Enter price" required [(ngModel)]="service.price" #price="ngModel" step="0.01" min="0">
       <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">€</span>
     </div>
-    <div [hidden]="price.valid || price.pristine" class="text-red-500 mt-2 text-sm">Price is required and must be a positive number</div>
+    <div *ngIf="price.valid || price.pristine" class="text-red-500 mt-2 text-sm">Price is required and must be a positive number</div>
   </div>
 
   <div class="ml-8 mr-8">
@@ -39,7 +39,7 @@
     <textarea id="description" name="description"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
               placeholder="Enter description" required [(ngModel)]="service.description" #description="ngModel"></textarea>
-    <div [hidden]="description.valid || description.pristine" class="text-red-500 mt-2 text-sm">Description is required</div>
+    <div *ngIf="description.valid || description.pristine" class="text-red-500 mt-2 text-sm">Description is required</div>
   </div>
 
   <div class="flex justify-end gap-4 mr-8">
