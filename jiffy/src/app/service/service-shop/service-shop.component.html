@@ -1,33 +1,35 @@
-<!-- Add this section at the top of your shop.component.html -->
-
+<!-- Header Section -->
 <div class="text-center mb-8">
   <h1 class="text-5xl font-bold text-gray-800">The Shop</h1>
 </div>
 
-<div class="mb-4 ml-4">
-  <input
-      type="text"
-      placeholder="Filter by title"
-      [(ngModel)]="titleFilter"
-      class="border-2 border-gray-300 rounded-lg p-2 mr-4"
-  />
-  <select
-      [(ngModel)]="serviceTypeFilter"
-      class="border-2 border-gray-300 rounded-lg p-2"
-  >
-      <option value="">All Service Types</option>
-      <option *ngFor="let type of serviceTypes" [value]="type.id">{{ type.name }}</option>
-  </select>
-  <button 
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4" 
-      (click)="applyFilters()">
-      Apply Filters
-  </button>
+<!-- Filters Section -->
+<div class="max-w-4xl mx-auto px-4 mb-6">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+    <div class="flex space-x-4">
+      <input
+        type="text"
+        placeholder="Filter by title"
+        [(ngModel)]="titleFilter"
+        (ngModelChange)="applyFilters()"
+        class="border-2 border-gray-300 rounded-lg p-2 w-full sm:w-64"
+      />
+      <select
+        [(ngModel)]="serviceTypeFilter"
+        (ngModelChange)="applyFilters()"
+        class="border-2 border-gray-300 rounded-lg p-2 w-full sm:w-64"
+      >
+        <option value="">All Service Types</option>
+        <option *ngFor="let type of serviceTypes" [value]="type.id">{{ type.name }}</option>
+      </select>
+    </div>
+  </div>
 </div>
 
-<!-- Grid container for services -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Grid Container for Services -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
   <app-services *ngFor="let service of filteredServices" [service]="service" [isShop]="true"></app-services>
 </div>
 
-<p *ngIf="!filteredServices.length" class="text-center mt-4">No services available!</p>
+<!-- No Services Available Message -->
+<p *ngIf="!filteredServices.length" class="text-center mt-4 text-gray-600">No services available!</p>

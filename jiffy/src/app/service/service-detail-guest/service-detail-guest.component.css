@@ -1,4 +1,4 @@
-.offer-detail-container {
+.service-detail-container {
     padding: 20px;
     background-color: #f9f9f9;
   }
@@ -16,37 +16,37 @@
     text-decoration: underline; /* Underline on hover */
   }
 
-  .offer-title {
+  .service-title {
     font-size: 2.5rem;
     margin-bottom: 10px;
   }
 
-  .offer-description {
+  .service-description, .service-price {
     font-size: 1.2rem;
     margin-bottom: 20px;
   }
 
-  .offer-details {
+  .service-details {
     font-size: 1rem;
     margin-bottom: 20px;
   }
 
-  .mercenary-info {
+  .jiffy-info {
     font-size: 1rem;
     border-top: 1px solid #ccc;
     padding-top: 10px;
   }
 
-  .mercenary-info a {
+  .jiffy-info a {
     color: #007bff; /* Blue color */
     text-decoration: underline; /* Underline */
   }
 
-  .mercenary-info a:hover {
+  .jiffy-info a:hover {
     color: #0056b3; /* Darker blue on hover */
   }
 
-  .book-offer-button {
+  .book-service-button {
     background-color: #28a745; /* Bootstrap green */
     color: white;
     border: none;
@@ -58,6 +58,6 @@
     transition: background-color 0.3s ease;
   }
 
-  .book-offer-button:hover {
+  .book-service-button:hover {
     background-color: #218838; /* Darker green on hover */
   }
