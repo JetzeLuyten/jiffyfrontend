@@ -1,33 +1,28 @@
-<!-- Add this section at the top of your shop.component.html -->
-
 <div class="text-center mb-8">
   <h1 class="text-5xl font-bold text-gray-800">The Shop</h1>
 </div>
 
-<div class="mb-4 ml-4">
+<div class="mb-4 ">
   <input
       type="text"
       placeholder="Filter by title"
       [(ngModel)]="titleFilter"
+      (ngModelChange)="applyFilters()"
       class="border-2 border-gray-300 rounded-lg p-2 mr-4"
   />
   <select
       [(ngModel)]="serviceTypeFilter"
+      (ngModelChange)="applyFilters()"
       class="border-2 border-gray-300 rounded-lg p-2"
   >
       <option value="">All Service Types</option>
       <option *ngFor="let type of serviceTypes" [value]="type.id">{{ type.name }}</option>
   </select>
-  <button 
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4" 
-      (click)="applyFilters()">
-      Apply Filters
-  </button>
 </div>
 
 <!-- Grid container for services -->
 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-  <app-services *ngFor="let service of filteredServices" [service]="service" [isShop]="true"></app-services>
+  <app-service-guest *ngFor="let service of filteredServices" [service]="service"></app-service-guest>
 </div>
 
-<p *ngIf="!filteredServices.length" class="text-center mt-4">No services available!</p>
+<p *ngIf="!filteredServices.length" class="text-center mt-4">No services available... :(</p>

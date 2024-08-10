@@ -9,6 +9,7 @@ import { LoginComponent } from "../auth0/login/login.component";
 import { BookingService } from '../services/booking.service';
 import { CreateBooking } from '../model/create-booking.dto';
 import { ServicesService } from '../services/service.services';
+import { RoleService } from '../services/role.service';
 
 @Component({
   selector: 'app-services',
@@ -27,7 +28,16 @@ export class ServicesComponent {
 
   isAuthenticated: boolean = false;
 
-  constructor(private router: Router, private location: Location, private auth: AuthService, private bookingService: BookingService, private servicesService: ServicesService) { }
+  isAdmin = signal(false);
+
+  constructor(
+    private router: Router, 
+    private location: Location, 
+    private auth: AuthService, 
+    private bookingService: BookingService, 
+    private servicesService: ServicesService,
+    private roleService: RoleService
+  ) { }
 
   ngOnInit(): void {
     this.auth.isAuthenticated$.subscribe(isAuthenticated => {
@@ -39,6 +49,10 @@ export class ServicesComponent {
         this.userId = user.sub;
         this.checkActiveBooking();
       }
+    });
+
+    this.roleService.hasPermission('delete:servicetype').subscribe(r => {
+      this.isAdmin.set(r);
     });
   }
 
