@@ -14,7 +14,6 @@ import { MyBookingsComponent } from './service/my-bookings/my-bookings.component
 import { MyJobsComponent } from './service/my-jobs/my-jobs.component';
 import { ShopGuestComponent } from './service/shop-guest/shop-guest.component';
 import { ServiceDetailGuestComponent } from './service/service-detail-guest/service-detail-guest.component';
-import { CallbackComponent } from './callback/callback.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -35,7 +34,6 @@ export const routes: Routes = [
     { path: 'mybookings', component: MyBookingsComponent },
     { path: 'myjobs', component: MyJobsComponent },
 
-    { path: 'callback', component: CallbackComponent },
     { path: '**', redirectTo: '' }
 ];
 
