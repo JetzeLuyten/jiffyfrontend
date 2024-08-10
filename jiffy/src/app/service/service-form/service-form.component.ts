@@ -87,6 +87,8 @@ export class ServiceFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.isSubmitted = true;
 
+    console.log(this.service.price);
+
     this.auth.user$.subscribe(user => {
       if (user?.sub) {
         if (this.isAdd) {
