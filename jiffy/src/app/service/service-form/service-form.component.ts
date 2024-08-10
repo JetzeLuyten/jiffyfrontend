@@ -87,8 +87,6 @@ export class ServiceFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.isSubmitted = true;
 
-    console.log(this.service.price);
-
     this.auth.user$.subscribe(user => {
       if (user?.sub) {
         if (this.isAdd) {
@@ -115,8 +113,6 @@ export class ServiceFormComponent implements OnInit, OnDestroy {
             serviceTypeId: this.service.serviceTypeId,
             price: this.service.price
           };
-
-          console.log(updateServiceDto.price);
 
           this.putService$ = this.serviceService.updateService(this.serviceId, updateServiceDto).subscribe({
             next: () => this.router.navigateByUrl('/myservices'),
