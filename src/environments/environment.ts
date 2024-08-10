@@ -5,6 +5,6 @@ export const environment = {
     AUTH0_CLIENT_ID: "bbPs7JATpF4qoDtwqoG346ISNDb6vDYZ",
     redirectUri: "https://main--jiffyservices.netlify.app/callback",
     api_url: "https://jiffybackend.azurewebsites.net/api",
-    home_url: "https://main--jiffyservices.netlify.app/",
+    home_url: "https://jiffyservices.netlify.app/",
     AUTH0_AUDIENCE: "https://jiffybackend.azurewebsites.net/"
   };
