@@ -8,12 +8,12 @@ import { ServiceType } from '../../model/serviceType';
 import { AuthService } from '@auth0/auth0-angular';
 import { ServiceTypeService } from '../../services/service-type.service';
 import { Router, RouterModule } from '@angular/router';
-import { ServiceGuestComponent } from '../service-guest/service-guest.component';
+import { ServicesComponent } from '../services.component';
 
 @Component({
   selector: 'app-service-shop',
   standalone: true,
-  imports: [CommonModule, ServiceGuestComponent, RouterModule, FormsModule],
+  imports: [CommonModule, ServicesComponent, RouterModule, FormsModule],
   templateUrl: './service-shop.component.html',
   styleUrl: './service-shop.component.css'
 })
