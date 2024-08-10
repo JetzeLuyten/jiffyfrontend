@@ -1,45 +1,51 @@
-<div class="rounded p-4 mb-4 text-lg bg-red-200 text-red-800 border-2 border-red-300" *ngIf="isSubmitted && errorMessage">
+<div class="rounded-lg p-4 mb-4 text-lg bg-red-200 text-red-800 border-2 border-red-300" *ngIf="isSubmitted && errorMessage">
   {{ errorMessage }}
 </div>
-<form (ngSubmit)="onSubmit()" #offerForm="ngForm">
-  <div class="mb-6">
-      <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Title</label>
-      <input type="text" id="title" name="title"
-             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-             placeholder="Title" required [(ngModel)]="service.title" #title="ngModel">
-      <div [hidden]="title.valid || title.pristine" class="text-red-500 mt-2">Title is required</div>
-  </div>
 
-  <div class="mb-6">
-      <label for="serviceTypeId" class="block mb-2 text-sm font-medium text-gray-900">Service Type</label>
-      <select type="number" id="serviceTypeId" name="serviceTypeId"
-             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-             required [(ngModel)]="service.serviceTypeId" #serviceTypeId="ngModel">
-             <option *ngFor="let type of serviceTypes" [value]="type.id">
-              {{type.name}}
-             </option>
-      </select>
-      <div [hidden]="serviceTypeId.valid || serviceTypeId.pristine" class="text-red-500 mt-2">Service Type is required</div>
-  </div>
-
-  <div class="mb-6">
-    <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Price</label>
-    <input type="number" id="price" name="price"
+<form (ngSubmit)="onSubmit()" #offerForm="ngForm" class="space-y-6">
+  <div class="ml-8 mr-8">
+    <label for="title" class="block mb-2 text-lg font-medium text-gray-900">Title</label>
+    <input type="text" id="title" name="title"
            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-           placeholder="Enter price" required [(ngModel)]="service.price" #price="ngModel" step="0.01" min="0">
-    <div [hidden]="price.valid || price.pristine" class="text-red-500 mt-2">Price is required and must be a positive number</div>
-</div>
-
-  <div class="mb-6">
-      <label for="description" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
-      <textarea id="description" name="description"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                placeholder="Description" required [(ngModel)]="service.description" #description="ngModel"></textarea>
-      <div [hidden]="description.valid || description.pristine" class="text-red-500 mt-2">Description is required</div>
+           placeholder="Enter the title" required [(ngModel)]="service.title" #title="ngModel">
+    <div [hidden]="title.valid || title.pristine" class="text-red-500 mt-2 text-sm">Title is required</div>
   </div>
 
-  <button type="submit" *ngIf="isAdd" [disabled]="!offerForm.form.valid || isSubmitted"
-          class="text-white bg-blue-700 enabled:hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:opacity-75">Add</button>
-  <button type="submit" *ngIf="isEdit" [disabled]="!offerForm.form.valid || isSubmitted"
-          class="text-white bg-blue-700 enabled:hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:opacity-75">Save</button>
+  <div class="ml-8 mr-8">
+    <label for="serviceTypeId" class="block mb-2 text-lg font-medium text-gray-900">Service Type</label>
+    <select id="serviceTypeId" name="serviceTypeId"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            required [(ngModel)]="service.serviceTypeId" #serviceTypeId="ngModel">
+      <option *ngFor="let type of serviceTypes" [value]="type.id">
+        {{type.name}}
+      </option>
+    </select>
+    <div [hidden]="serviceTypeId.valid || serviceTypeId.pristine" class="text-red-500 mt-2 text-sm">Service Type is required</div>
+  </div>
+
+  <div class="ml-8 mr-8">
+    <label for="price" class="block mb-2 text-lg font-medium text-gray-900">Price</label>
+    <div class="relative">
+      <input type="number" id="price" name="price"
+             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pl-10"
+             placeholder="Enter price" required [(ngModel)]="service.price" #price="ngModel" step="0.01" min="0">
+      <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">€</span>
+    </div>
+    <div [hidden]="price.valid || price.pristine" class="text-red-500 mt-2 text-sm">Price is required and must be a positive number</div>
+  </div>
+
+  <div class="ml-8 mr-8">
+    <label for="description" class="block mb-2 text-lg font-medium text-gray-900">Description</label>
+    <textarea id="description" name="description"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+              placeholder="Enter description" required [(ngModel)]="service.description" #description="ngModel"></textarea>
+    <div [hidden]="description.valid || description.pristine" class="text-red-500 mt-2 text-sm">Description is required</div>
+  </div>
+
+  <div class="flex justify-end gap-4 mr-8">
+    <button type="submit" *ngIf="isAdd" [disabled]="!offerForm.form.valid || isSubmitted"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 disabled:opacity-75">Add</button>
+    <button type="submit" *ngIf="isEdit" [disabled]="!offerForm.form.valid || isSubmitted"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 disabled:opacity-75">Save</button>
+  </div>
 </form>
